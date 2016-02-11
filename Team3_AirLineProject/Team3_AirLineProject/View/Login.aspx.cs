@@ -24,10 +24,43 @@ namespace Team3_AirLineProject.View
 
             if (LoginRegister.CheckLoginUser(name, password))
             {
+
+                User LoginUser = UserManager.getUser(name);
+                Session["LoginUser"] = LoginUser;
+                
+                // redirect base on role
+                if (Session["departureId"] != null)
+                {
+                    switch (LoginUser.idRole)
+                    {
+                        case "user":
+                            Response.Redirect("~/userM/SelectPassenger.aspx");
+                            break;
+
+                        case "staff":
+                            Response.Redirect("~/staff/SelectPassenger.aspx");
+                            break;
+                        
+                    }
+                }
+                else
+                {
+                    switch (LoginUser.idRole)
+                    {
+                        case "user":
+                            Response.Redirect("~/userM/welcome.aspx");
+                            break;
+
+                        case "staff":
+                            Response.Redirect("~/staff/welcome.aspx");
+                            break;
+                        case "admin":
+                            Response.Redirect("~/admin/MaintainUser.aspx");
+                            break;
+                    }
+                }
                 
                 
-                FormsAuthentication.RedirectFromLoginPage(name, true);
-               
                 
             }
             else

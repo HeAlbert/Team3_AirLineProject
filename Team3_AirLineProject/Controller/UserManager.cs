@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class UserManager
+    public class UserManager
     {
         
         public static User getUser(string name)
@@ -14,6 +14,7 @@ namespace Controller
             using (AirlionEntities airlineEf = new AirlionEntities())
             {
                 return airlineEf.Users.Find(name);
+                
             }
             
         }
@@ -26,6 +27,16 @@ namespace Controller
                 airlineEf.SaveChanges();
             }
            
+        }
+        public static void UpdateUser(User newusr)
+        {
+            using (AirlionEntities cntx = new AirlionEntities())
+            {
+               User updateUser= cntx.Users.Find(newusr.idUser);
+               updateUser.password = newusr.password;
+               updateUser.phoneNo = newusr.phoneNo;
+               cntx.SaveChanges();
+            }
         }
     }
 }

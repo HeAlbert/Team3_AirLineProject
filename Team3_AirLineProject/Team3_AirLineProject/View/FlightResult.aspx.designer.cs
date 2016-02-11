@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team3_AirLineProject.userPage {
+namespace Team3_AirLineProject.view {
     
     
-    public partial class welcome {
+    public partial class FlightResult {
         
         /// <summary>
-        /// labMessage control.
+        /// flightgridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labMessage;
+        protected global::System.Web.UI.WebControls.GridView flightgridView;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
